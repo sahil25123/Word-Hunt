@@ -2,5 +2,14 @@
     height: 100vh;
     background-color: #282c34;
     color: white;
-    
+
+}
+
+.Container{
+
+}
+.title{
+    font-size: 7vw;
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

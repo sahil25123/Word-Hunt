@@ -4,6 +4,7 @@ import axios from 'axios'
 import './App.css'
 import { useEffect, useState } from 'react';
 import { Container } from '@mui/material';
+import Header from './components/header';
 
 function App() {
   const [word, setWord] = useState("");
@@ -33,7 +34,7 @@ useEffect(() =>{
       
       <div className='app'>
         <Container maxWidth="lg">
-          Dictonary
+         <Header/>
 
           
         </Container>
