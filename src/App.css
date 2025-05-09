@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 .App{
     height: 100vh;
     background-color: #282c34;
@@ -11,5 +12,13 @@
 .title{
     font-size: 7vw;
     text-transform: uppercase;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Montserrat";
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly ;
+    flex-direction: column;
+    height: 35vh;
+    width: 100%;
 }
