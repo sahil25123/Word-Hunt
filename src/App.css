@@ -1,24 +1,170 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-.App{
-    height: 100vh;
-    background-color: #282c34;
-    color: white;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
-.Container{
+body {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
 
+.app {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
 }
-.title{
-    font-size: 7vw;
-    text-transform: uppercase;
-    font-family: "Montserrat";
+
+/* Header Styles */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
 }
-.header{
-    display: flex;
-    align-items: center;
-    justify-content:space-evenly ;
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.inputs {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search {
+  flex: 1;
+}
+
+/* Override Material-UI TextField styles for dark theme */
+.MuiTextField-root .MuiOutlinedInput-root {
+  background-color: #2d2d2d;
+  border-radius: 8px;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: #404040;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #666666;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #90caf9;
+}
+
+.MuiTextField-root .MuiInputLabel-root {
+  color: #b0b0b0;
+}
+
+.MuiTextField-root .MuiInputLabel-root.Mui-focused {
+  color: #90caf9;
+}
+
+.MuiTextField-root .MuiOutlinedInput-input {
+  color: #ffffff;
+}
+
+/* Button Styles */
+.MuiButton-contained {
+  background-color: #90caf9 !important;
+  color: #1a1a1a !important;
+  font-weight: 600 !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.MuiButton-contained:hover {
+  background-color: #64b5f6 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Definition Container Styles */
+.definition-container {
+  background-color: #2d2d2d !important;
+  border: 1px solid #404040;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.part-of-speech {
+  color: #90caf9 !important;
+  border-bottom-color: #404040 !important;
+}
+
+.definition-item {
+  color: #e0e0e0 !important;
+}
+
+.definition-item::before {
+  color: #90caf9 !important;
+}
+
+.example {
+  color: #b0b0b0 !important;
+  border-left-color: #404040 !important;
+}
+
+.synonym-tag {
+  background-color: #404040 !important;
+  color: #e0e0e0 !important;
+}
+
+.synonym-tag:hover {
+  background-color: #505050 !important;
+}
+
+.subtitle {
+  color: #b0b0b0 !important;
+}
+
+.error-message {
+  color: #ef5350 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .inputs {
     flex-direction: column;
-    height: 35vh;
+  }
+
+  .MuiButton-contained {
     width: 100%;
+  }
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading {
+  background: linear-gradient(90deg, #2d2d2d 0%, #404040 50%, #2d2d2d 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
 }
