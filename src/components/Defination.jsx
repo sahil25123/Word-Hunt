@@ -1,50 +1,30 @@
-import React from 'react'
-import './Defination.css'
+import React from 'react';
 
-const Defination = ({word, meanings}) => {
+const Defination = ({ word, meanings }) => {
   return (
     <div className="definition-container">
+      {meanings[0] && word && meanings[0].phonetics[0]?.audio && (
+        <audio controls src={meanings[0].phonetics[0].audio}>
+          Your browser does not support the audio element.
+        </audio>
+      )}
+
       {word === "" ? (
-        <span className='subtitle'>
-          Start by typing a word in search
-        </span>
-      ) : meanings.length > 0 ? (
-        meanings.map((meaning, index) => (
-          <div key={index} className="meaning-section">
-            <div className="part-of-speech">
-              {meaning.meanings[0].partOfSpeech}
-            </div>
-            <ul className="definition-list">
-              {meaning.meanings[0].definitions.map((def, idx) => (
-                <li key={idx} className="definition-item">
-                  {def.definition}
-                  {def.example && (
-                    <div className="example">
-                      Example: {def.example}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-            {meaning.meanings[0].synonyms.length > 0 && (
-              <div className="synonyms">
-                <span>Synonyms: </span>
-                {meaning.meanings[0].synonyms.map((synonym, idx) => (
-                  <span key={idx} className="synonym-tag">
-                    {synonym}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-        ))
+        <span className="subtitle">Start by typing a word in search</span>
       ) : (
-        <div className="error-message">
-          No definitions found for this word
-        </div>
+        meanings.map((mean, idx) =>
+          mean.meanings.map((item) =>
+            item.definitions.map((def, index) => (
+              <div className="singleMean" key={`${idx}-${index}`}>
+                <b>{def.definition}</b>
+                {def.example && <p><i>Example: {def.example}</i></p>}
+              </div>
+            ))
+          )
+        )
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Defination
+export default Defination;
